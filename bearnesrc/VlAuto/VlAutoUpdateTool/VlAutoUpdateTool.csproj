@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <!--by Tuyết Nhi, thêm icon cho ứng dụng-->
+        <ApplicationIcon>myicon.ico</ApplicationIcon>
+        <UseWin32Resources>true</UseWin32Resources>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+        <SignAssembly>False</SignAssembly>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Copyright>bearne princess nè</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Files\**" />
+      <EmbeddedResource Remove="Files\**" />
+      <None Remove="Files\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="background\file.png" />
+      <None Remove="background\folder.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="background\file.png" />
+      <EmbeddedResource Include="background\folder.png" />
+    </ItemGroup>
+	
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Properties\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Properties\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+	
+    <ItemGroup>
+        <None Include="readme.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+</Project>

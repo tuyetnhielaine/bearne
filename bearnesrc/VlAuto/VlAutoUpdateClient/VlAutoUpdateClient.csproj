@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!--by Tuyết Nhi, thêm icon cho ứng dụng-->
+		<ApplicationIcon>myicon.ico</ApplicationIcon>
+		<UseWin32Resources>true</UseWin32Resources>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<!--by Tuyết Nhi, thêm tên tùy chọn khi build ứng dụng START-->
+		<OriginalProjectName>bearneprincess</OriginalProjectName>
+		<AssemblyName>$(OriginalProjectName.Replace(' ', '_'))</AssemblyName>
+		<SanitizedProjectName>$(OriginalProjectName.Replace(' ', '_'))</SanitizedProjectName>
+		<PackageId>$(SanitizedProjectName)</PackageId>
+		<!--by Tuyết Nhi, thêm tên tùy chọn khi build ứng dụng END-->
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>bearne princess nè</Copyright>
+		<IncludeSymbols>False</IncludeSymbols>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Description></Description>
+		<PackageProjectUrl></PackageProjectUrl>
+		<Title></Title>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Serilog" Version="3.1.1" />
+		<PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="background\" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+		<DesignTime>True</DesignTime>
+		<AutoGen>True</AutoGen>
+		<DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+		<Generator>ResXFileCodeGenerator</Generator>
+		<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+	</ItemGroup>
+
+    <ItemGroup>
+        <None Include="readme.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+</Project>
