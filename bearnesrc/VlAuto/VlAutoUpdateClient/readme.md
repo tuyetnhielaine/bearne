@@ -1,3 +1,0 @@
-# VlAutoUpdateClient
-
-bearne princess nice to meet you...
